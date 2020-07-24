@@ -27,9 +27,10 @@ HTML steps
 - Total Monthly holder
 
 Jquery/JS
+- submit click handler
 - read form inputs
-- add info to monthly cost
 - append to DOM table
+- add monthly salary info to monthly cost
 - add red logic for over $20,000 month
 - delete button with each employee
 - clear employee on click
