@@ -13,6 +13,27 @@ A 'Submit' button should collect the form information, store the information to 
 
 Create a delete button that removes an employee from the DOM. For Base mode, it does **not** need to remove that Employee's salary from the reported total.
 
+HTML steps
+- add title - salary calculator
+- add inputs
+    - first name
+    - last name
+    - id
+    - title
+    - annual salary
+- submit button
+- create table headers/data
+- table bottom div?
+- Total Monthly holder
+
+Jquery/JS
+- read form inputs
+- add info to monthly cost
+- append to DOM table
+- add red logic for over $20,000 month
+- delete button with each employee
+- clear employee on click
+
 ### Files Provided
 No files have been provided. Fork and clone this repository or create a new GitHub repository to get started. Make sure to commit regularily!
 
