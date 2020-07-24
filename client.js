@@ -1,12 +1,5 @@
 $(document).ready(readyNow);
 let employeeList = [];
-// let employee = {
-//     firstName: firstName,
-//     lastName: lastName,
-//     id: id,
-//     title: title,
-//     annualSalary: annualSalary,
-// };
 
 function readyNow() {
     console.log('jquery running')
@@ -26,22 +19,24 @@ function addEmployee() {
     employeeList.push(employee);
     console.log(employeeList);
     appendToTable();
-};
+}
 
 
 function appendToTable() {
-    $('#employeeTableData').empty();
-    for (let employee in employeeList) {
-        console.log($('#firstNameInput').val());
-        console.log(employee.lastName);
-        $('#displayEmployeeData').append(
+    //clear employees from DOM
+    $('#displayData').empty();
+    console.log(employeeList)
+    //add each employee
+    for (let anEmployee of employeeList) {
+        console.log(anEmployee.lastName);
+        $('tbody').append(
             `<tr>
-            <td>${employee.firstName}</td>
-            <td>${employee.lastName}</td>
-            <td>${employee.id}</td>
-            <td>${employee.title}</td>
-            <td>${employee.annualSalary}</td>
-            <th>delete button</td>
+            <td>${anEmployee.firstName}</td>
+            <td>${anEmployee.lastName}</td>
+            <td>${anEmployee.id}</td>
+            <td>${anEmployee.title}</td>
+            <td>${anEmployee.annualSalary}</td>
+            <td>delete button</td>
             </tr>
             `
         );
