@@ -24,10 +24,10 @@ function addEmployee() {
 function appendToTable() {
  $('#employeeTableData').empty();
     for (let employee in employeeList) {
-        console.log(employee.firstName);
+        console.log($('#firstNameInput').val());
         $('#employeeTableData').append(
             `<tr>
-            <th>${employee.firstName}</th>
+            <th>${$('#firstNameInput').val()}</th>
             <th>${employee.lastName}</th>
             <th>${employee.id}</th>
             <th>${employee.title}</th>
