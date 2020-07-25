@@ -26,6 +26,7 @@ function appendToTable() {
     //clear employees from DOM
     $('#displayData').empty();
     console.log(employeeList)
+    let monthlySalarySum = 0;
     //add each employee
     for (let anEmployee of employeeList) {
         console.log(anEmployee.lastName);
@@ -36,30 +37,28 @@ function appendToTable() {
             <td>${anEmployee.id}</td>
             <td>${anEmployee.title}</td>
             <td>${anEmployee.annualSalary}</td>
-            <td>delete button</td>
+            <td><button id='deleteBtn' class="btn btn-secondary">Delete</button></td>
             </tr>
             `
         );
+        monthlySalarySum += anEmployee.annualSalary / 12;
+        $('#totalMonthly').text(` $${monthlySalarySum.toFixed(2)}`);
+    }
+
+    if (monthlySalarySum > 20000) {
+        $('#totalMonthly').addClass('turnRed')
     }
 }
 
 console.log('js connected');
 
 
-// {/* <tr>
-//             <th>First Name</th>
-//             <th>Last Name</th>
-//             <th>ID</th>
-//             <th>Title</th>
-//             <th>Annual Salary</th>
-//             <th></th>
-//         </tr> */}
 
 // Jquery/JS
-// - submit click handler
-// - read form inputs
-// - append to DOM table
-// - add monthly salary info to monthly cost
-// - add red logic for over $20,000 month
+// x - submit click handler
+// x - read form inputs
+// x - append to DOM table
+// x - add monthly salary info to monthly cost
+// x - add red logic for over $20,000 month
 // - delete button with each employee
 // - clear employee on click
