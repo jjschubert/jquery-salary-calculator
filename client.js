@@ -39,7 +39,7 @@ function appendToTable() {
             <td class='employeeId'>${anEmployee.id}</td>
             <td>${anEmployee.title}</td>
             <td>${anEmployee.annualSalary}</td>
-            <td id='deleteBtnContainer'><button id=${anEmployee.id} class="btn btn-secondary deleteBtn">Delete</button></td>
+            <td class='deleteBtnContainer'><button id=${anEmployee.id} class="btn btn-secondary deleteBtn">Delete</button></td>
             </tr>
             `
         );
@@ -80,9 +80,6 @@ function deleteEmployee(element) {
     employeeList.splice(indexOfEmployeeToBeDeleted, 1)
     console.log(employeeList);
     //update monthly salary 
-    //code below removes employee, but $$$ == double the single employee left
-    // monthlySalarySum -= employeeToBeDeleted.annualSalary / 12;
-    
     // loop through updated array to reach monthly salary
     let updatedSum = 0;
     for (employee of employeeList) {
@@ -117,4 +114,4 @@ console.log('js connected');
 // x - add red logic for over $20,000 month
 // x - delete button with each employee
 // x - clear employee on click
-// x - update readme
+// x - update salary for new array

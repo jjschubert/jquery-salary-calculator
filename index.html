@@ -11,23 +11,25 @@
     <title>Salary Calculator</title>
 </head>
 
-<body>
+<body id='body'>
     <header class='jumbotron'>
         <h1>Salary Calculator</h1>
     </header>
-    <section>
+    <section id='addEmployeeSection'>
         <h3>Add Employee</h3>
         <input type='text' placeholder="First Name" id='firstNameInput'>
         <input type='text' placeholder="Last Name" id='lastNameInput'>
         <input type='number' placeholder="ID" id='idInput'>
         <input type='text' placeholder="Title" id='titleInput'>
         <input type='number' placeholder="Annual Salary" id='salaryInput'>
-        <button class="btn btn-info" id="submitEmployee">Submit</button>
+        <div id='submitBtnDiv'>
+            <button class="btn btn-info" id="submitEmployee">Submit</button>
+        </div>
         <br>
     </section>
-    <section class="tableSection">
+    <section id="tableSection">
         <h3>Employees</h3>
-        <table class="table table-striped">
+        <table class="table table-striped table-bordered">
             <thead>
                 <tr>
                     <th>First Name</th>
@@ -43,9 +45,9 @@
             </tbody>
         </table>
 
-
-        <h3 id='total'>Total Monthly: <span id='totalMonthly'></span></h3>
-
+        <div id='totalDisplay'>
+            <h3>Total Monthly: <span id='totalMonthly'></span></h3>
+        </div>
     </section>
 </body>
 
