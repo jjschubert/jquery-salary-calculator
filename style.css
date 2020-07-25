@@ -18,12 +18,12 @@ h1 {
     text-align: center;
 }
 
-.turnBlack {
-    color: black;
+.turnWhite {
+    background-color:white;
 }
 
 .turnRed {
-    color: red;
+    background-color: red;
 }
 
 #body {

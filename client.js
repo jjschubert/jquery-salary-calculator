@@ -93,7 +93,7 @@ function deleteEmployee(element) {
     if (updatedSum > 20000) {
         $('#totalMonthly').addClass('turnRed');
     } else {
-        $('#totalMonthly').addClass('turnBlack');
+        $('#totalMonthly').addClass('turnWhite');
         $('#totalMonthly').removeClass('turnRed');
     }
 
