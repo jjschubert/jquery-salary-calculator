@@ -2,8 +2,10 @@ $(document).ready(readyNow);
 let employeeList = [];
 
 function readyNow() {
-    console.log('jquery running')
+    console.log('jquery running');
     $('#submitEmployee').on('click', addEmployee);
+    $('#deleteBtnContainer').on('click', '#deleteBtn', deleteEmployee);
+    //not working b/c '#deleteBtnContainer' not there on page load
 }
 
 function addEmployee() {
@@ -37,7 +39,7 @@ function appendToTable() {
             <td>${anEmployee.id}</td>
             <td>${anEmployee.title}</td>
             <td>${anEmployee.annualSalary}</td>
-            <td><button id='deleteBtn' class="btn btn-secondary">Delete</button></td>
+            <td id='deleteBtnContainer'><button id='deleteBtn' class="btn btn-secondary">Delete</button></td>
             </tr>
             `
         );
@@ -47,8 +49,14 @@ function appendToTable() {
 
     if (monthlySalarySum > 20000) {
         $('#totalMonthly').addClass('turnRed')
-    }
+    };
+    $('input').val('');
 }
+
+function deleteEmployee() {
+    console.log('deleteEmployee running')
+}
+
 
 console.log('js connected');
 
@@ -60,5 +68,5 @@ console.log('js connected');
 // x - append to DOM table
 // x - add monthly salary info to monthly cost
 // x - add red logic for over $20,000 month
-// - delete button with each employee
+// x - delete button with each employee
 // - clear employee on click
