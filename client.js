@@ -4,8 +4,7 @@ let employeeList = [];
 function readyNow() {
     console.log('jquery running');
     $('#submitEmployee').on('click', addEmployee);
-    $('#displayData').on('click', '#deleteBtn', deleteEmployee);
-    //not working b/c '#deleteBtnContainer' not there on page load
+    $('#displayData').on('click', '.deleteBtn', deleteEmployee);
 }
 
 function addEmployee() {
@@ -36,10 +35,10 @@ function appendToTable() {
             `<tr>
             <td>${anEmployee.firstName}</td>
             <td>${anEmployee.lastName}</td>
-            <td>${anEmployee.id}</td>
+            <td class='employeeId'>${anEmployee.id}</td>
             <td>${anEmployee.title}</td>
             <td>${anEmployee.annualSalary}</td>
-            <td id='deleteBtnContainer'><button id='deleteBtn' class="btn btn-secondary">Delete</button></td>
+            <td id='deleteBtnContainer'><button id=${anEmployee.id} class="btn btn-secondary deleteBtn">Delete</button></td>
             </tr>
             `
         );
@@ -53,13 +52,34 @@ function appendToTable() {
     $('input').val('');
 }
 
-function deleteEmployee() {
+function deleteEmployee(element) {
     console.log('deleteEmployee running')
+    console.log(element.target.id);
+
+    //get id of person to be removed
+    let toBeRemoved = element.target.id;
+    console.log(toBeRemoved);
+
+    //define for later
+    let employeeToBeDeleted;
+    console.log(employeeToBeDeleted);
+
+    //search array for object via loop
+    for (anEmployee of employeeList) {
+        if (anEmployee.id == toBeRemoved) {
+            //set employeeToBeDeleted to employee object containing the matching id
+            employeeToBeDeleted = anEmployee;
+        }
+    }
+    console.log(employeeToBeDeleted);
+    //find index of employee obj with matching id
+    let indexOfEmployeeToBeDeleted = employeeList.indexOf(employeeToBeDeleted);
+
+    //remove that employee from array
+    employeeList.splice(indexOfEmployeeToBeDeleted, 1)
+    console.log(employeeList);
+    //remove empty row
     $(this).closest('tr').remove();
-    //need to delete this object from array - not working as is
-    employeeList.filter(function(el){
-        return el.firstName != 'Goose';
-    })
 }
 
 
@@ -74,5 +94,5 @@ console.log('js connected');
 // x - add monthly salary info to monthly cost
 // x - add red logic for over $20,000 month
 // x - delete button with each employee
-// - clear employee on click
-// - update readme
+// x - clear employee on click
+// x - update readme
