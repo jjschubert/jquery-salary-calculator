@@ -4,7 +4,7 @@ let employeeList = [];
 function readyNow() {
     console.log('jquery running');
     $('#submitEmployee').on('click', addEmployee);
-    $('#deleteBtnContainer').on('click', '#deleteBtn', deleteEmployee);
+    $('#displayData').on('click', '#deleteBtn', deleteEmployee);
     //not working b/c '#deleteBtnContainer' not there on page load
 }
 
@@ -55,6 +55,11 @@ function appendToTable() {
 
 function deleteEmployee() {
     console.log('deleteEmployee running')
+    $(this).closest('tr').remove();
+    //need to delete this object from array - not working as is
+    employeeList.filter(function(el){
+        return el.firstName != 'Goose';
+    })
 }
 
 
@@ -70,3 +75,4 @@ console.log('js connected');
 // x - add red logic for over $20,000 month
 // x - delete button with each employee
 // - clear employee on click
+// - update readme
