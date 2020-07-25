@@ -84,7 +84,7 @@ function deleteEmployee(element) {
     let updatedSum = 0;
     for (employee of employeeList) {
         console.log(employee.annualSalary);
-        updatedSum += employee.annualSalary/12;
+        updatedSum += employee.annualSalary / 12;
     } console.log(Number(updatedSum));
     //update monthly salary field
     $('#totalMonthly').text(` $${updatedSum.toFixed(2)}`);
