@@ -1,5 +1,6 @@
 $(document).ready(readyNow);
 let employeeList = [];
+let monthlySalarySum = 0;
 
 function readyNow() {
     console.log('jquery running');
@@ -27,7 +28,7 @@ function appendToTable() {
     //clear employees from DOM
     $('#displayData').empty();
     console.log(employeeList)
-    let monthlySalarySum = 0;
+
     //add each employee
     for (let anEmployee of employeeList) {
         console.log(anEmployee.lastName);
@@ -78,6 +79,27 @@ function deleteEmployee(element) {
     //remove that employee from array
     employeeList.splice(indexOfEmployeeToBeDeleted, 1)
     console.log(employeeList);
+    //update monthly salary 
+    //code below removes employee, but $$$ == double the single employee left
+    // monthlySalarySum -= employeeToBeDeleted.annualSalary / 12;
+    
+    // loop through updated array to reach monthly salary
+    let updatedSum = 0;
+    for (employee of employeeList) {
+        console.log(employee.annualSalary);
+        updatedSum += employee.annualSalary/12;
+    } console.log(Number(updatedSum));
+    //update monthly salary field
+    $('#totalMonthly').text(` $${updatedSum.toFixed(2)}`);
+
+    //red functionality for updatedSum
+    if (updatedSum > 20000) {
+        $('#totalMonthly').addClass('turnRed');
+    } else {
+        $('#totalMonthly').addClass('turnBlack');
+        $('#totalMonthly').removeClass('turnRed');
+    }
+
     //remove empty row
     $(this).closest('tr').remove();
 }
