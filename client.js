@@ -17,10 +17,16 @@ function addEmployee() {
         title: $('#titleInput').val(),
         annualSalary: Number($('#salaryInput').val()),
     };
-    console.log(employee);
-    employeeList.push(employee);
-    console.log(employeeList);
-    appendToTable();
+    // make fields required -- not working
+    // if ($('input').val('')) {
+    //     alert('All fields are required');
+    //     return false;
+    // } else {
+        console.log(employee);
+        employeeList.push(employee);
+        console.log(employeeList);
+        appendToTable();
+    // }
 }
 
 
