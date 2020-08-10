@@ -17,16 +17,16 @@ function addEmployee() {
         title: $('#titleInput').val(),
         annualSalary: Number($('#salaryInput').val()),
     };
-    // make fields required -- not working
-    // if ($('input').val('')) {
-    //     alert('All fields are required');
-    //     return false;
-    // } else {
+    // make fields required 
+    if ($('#idInput').val() === '' || $('#salaryInput').val() === '') {
+        alert('ID and salary fields are required');
+        return false;
+    } else {
         console.log(employee);
         employeeList.push(employee);
         console.log(employeeList);
         appendToTable();
-    // }
+    }
 }
 
 
@@ -34,7 +34,7 @@ function appendToTable() {
     //clear employees from DOM
     $('#displayData').empty();
     console.log(employeeList)
-
+    monthlySalarySum = 0;
     //add each employee
     for (let anEmployee of employeeList) {
         console.log(anEmployee.lastName);
@@ -107,6 +107,10 @@ function deleteEmployee(element) {
     $(this).closest('tr').remove();
 }
 
+// function handleDeleteDanesWay() {
+//     //removes row nearest/containing the delete button clicked
+//     $(this).closest('tr').remove();
+// }
 
 console.log('js connected');
 
